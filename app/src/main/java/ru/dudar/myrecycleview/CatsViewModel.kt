@@ -1,16 +1,8 @@
 package ru.dudar.myrecycleview
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
-import java.time.LocalDate
-import java.time.LocalDate.*
-import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.random.Random
 
-
-@RequiresApi(Build.VERSION_CODES.O)
 class CatsViewModel: ViewModel() {
 
     val cats = mutableListOf<Cat>()

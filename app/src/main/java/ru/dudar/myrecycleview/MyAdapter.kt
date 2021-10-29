@@ -28,7 +28,7 @@ class MyAdapter(val cats: List<Cat>, val myContext: Context):
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val cat : Cat = cats[position]
+        val cat = cats[position]
         holder.text1.text = cat.name
         val age = "Возраст: ${cat.age.toString()} ${god(cat.age)}"
         holder.itemView.setOnClickListener {

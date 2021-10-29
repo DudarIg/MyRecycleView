@@ -6,4 +6,5 @@ data class Cat(
     val id: UUID = UUID.randomUUID(),
     var name: String = "",
     var color: String = "",
-    var age: Int = 0)
+    var age: Int = 0,
+    var date: Date = Date())

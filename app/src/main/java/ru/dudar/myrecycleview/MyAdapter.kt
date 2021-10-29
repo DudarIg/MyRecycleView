@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import java.security.AccessController.getContext
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MyAdapter(val cats: List<Cat>, val myContext: Context):
                                 RecyclerView.Adapter<MyAdapter.MyHolder>() {
@@ -30,7 +32,7 @@ class MyAdapter(val cats: List<Cat>, val myContext: Context):
         holder.text1.text = cat.name
         val age = "Возраст: ${cat.age.toString()} ${god(cat.age)}"
         holder.itemView.setOnClickListener {
-            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age )
+            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, getDateToString(cat.date) )
             myContext.startActivity(intent)
         }
     }
@@ -47,5 +49,13 @@ class MyAdapter(val cats: List<Cat>, val myContext: Context):
         }
         return "нет данных"
     }
+
+    fun getDateToString(data : Date): String{
+        //val dtime = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd-MM-yy kk:mm", Locale.getDefault())
+        return formatter.format(data)
+
+    }
+
 
 }

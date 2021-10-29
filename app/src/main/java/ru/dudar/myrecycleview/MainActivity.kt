@@ -9,14 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    //private lateinit var recyclerView: RecyclerView
-    private val catsVM : CatsViewModel by lazy {
-        ViewModelProviders.of(this).get(CatsViewModel::class.java)
-    }
+
+    //private val catsVM = ViewModelProvider(this).get(CatsViewModel::class.java)
+
+
+//    private val catsVM : CatsViewModel by lazy {
+//        ViewModelProviders.of(this).get(CatsViewModel::class.java)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val catsVM = ViewModelProvider(this).get(CatsViewModel::class.java)
 
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)

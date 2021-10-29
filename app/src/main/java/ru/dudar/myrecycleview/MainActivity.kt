@@ -8,9 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-
-
-
 //    private val catsVM : CatsViewModel by lazy {
 //        ViewModelProviders.of(this).get(CatsViewModel::class.java)
 //    }

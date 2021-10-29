@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import ru.dudar.myrecycleview.tools.tools
+import ru.dudar.myrecycleview.tools.Tools
 
 class MyAdapter(private val cats: List<Cat>, private val myContext: Context):
                                 RecyclerView.Adapter<MyAdapter.MyHolder>() {
@@ -23,9 +23,9 @@ class MyAdapter(private val cats: List<Cat>, private val myContext: Context):
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val cat = cats[position]
         holder.text1.text = cat.name
-        val age = "${cat.age} ${tools.god(cat.age)}"
+        val age = "${cat.age} ${Tools.god(cat.age)}"
         holder.itemView.setOnClickListener {
-            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, tools.getDateToString(cat.date) )
+            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, Tools.getDateToString(cat.date) )
             myContext.startActivity(intent)
         }
     }

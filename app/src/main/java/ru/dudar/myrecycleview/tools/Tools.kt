@@ -3,7 +3,7 @@ package ru.dudar.myrecycleview.tools
 import java.text.SimpleDateFormat
 import java.util.*
 
-object tools {
+object Tools {
 
     fun god(g : Int) : String {
         when (g) {

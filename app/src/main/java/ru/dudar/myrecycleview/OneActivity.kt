@@ -17,7 +17,7 @@ private const val EXTRA_DATE = "extra_dat"
 class OneActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_one)
+        setContentView(R.layout.activity_one_constr)
 
         val name = intent.getStringExtra(EXTRA_NAME)
         val color = intent.getStringExtra(EXTRA_COLOR)

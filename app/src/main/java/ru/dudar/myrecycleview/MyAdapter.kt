@@ -30,7 +30,7 @@ class MyAdapter(val cats: List<Cat>, val myContext: Context):
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val cat = cats[position]
         holder.text1.text = cat.name
-        val age = "Возраст: ${cat.age.toString()} ${god(cat.age)}"
+        val age = "${cat.age.toString()} ${god(cat.age)}"
         holder.itemView.setOnClickListener {
             val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, getDateToString(cat.date) )
             myContext.startActivity(intent)

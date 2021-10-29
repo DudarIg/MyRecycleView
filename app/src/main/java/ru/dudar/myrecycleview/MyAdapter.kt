@@ -1,14 +1,12 @@
 package ru.dudar.myrecycleview
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
-import java.util.*
+import ru.dudar.myrecycleview.tools.tools
 
 class MyAdapter(private val cats: List<Cat>, private val myContext: Context):
                                 RecyclerView.Adapter<MyAdapter.MyHolder>() {
@@ -18,17 +16,16 @@ class MyAdapter(private val cats: List<Cat>, private val myContext: Context):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        val itemview = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recyclerview_item, parent, false)
-        return MyHolder(itemview)
+        return MyHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.recyclerview_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val cat = cats[position]
         holder.text1.text = cat.name
-        val age = "${cat.age} ${god(cat.age)}"
+        val age = "${cat.age} ${tools.god(cat.age)}"
         holder.itemView.setOnClickListener {
-            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, getDateToString(cat.date) )
+            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, tools.getDateToString(cat.date) )
             myContext.startActivity(intent)
         }
     }
@@ -37,21 +34,6 @@ class MyAdapter(private val cats: List<Cat>, private val myContext: Context):
         return cats.size
     }
 
-    private fun god(g : Int) : String {
-        when (g) {
-            1 ->  return "год"
-            in 2..4 -> return  "года"
-            in 5..12 -> return "лет"
-        }
-        return "нет данных"
-    }
-
-    private fun getDateToString(data : Date): String{
-        //val dtime = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("dd-MM-yy kk:mm", Locale.getDefault())
-        return formatter.format(data)
-
-    }
 
 
 }

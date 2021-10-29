@@ -15,10 +15,8 @@ object Tools {
     }
 
     fun getDateToString(): String{
-        val dtime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd-MM-yy kk:mm", Locale.getDefault())
-        return formatter.format(dtime)
-
+        return formatter.format(Calendar.getInstance().time)
     }
 
 }

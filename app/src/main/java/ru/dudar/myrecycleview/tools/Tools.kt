@@ -14,10 +14,10 @@ object Tools {
         return "нет данных"
     }
 
-    fun getDateToString(data : Date): String{
-        //val dtime = Calendar.getInstance().time
+    fun getDateToString(): String{
+        val dtime = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd-MM-yy kk:mm", Locale.getDefault())
-        return formatter.format(data)
+        return formatter.format(dtime)
 
     }
 

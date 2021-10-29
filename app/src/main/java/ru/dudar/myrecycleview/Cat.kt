@@ -1,5 +1,6 @@
 package ru.dudar.myrecycleview
 
+import java.time.LocalDate
 import java.util.*
 
 data class Cat(
@@ -7,4 +8,5 @@ data class Cat(
     var name: String = "",
     var color: String = "",
     var age: Int = 0,
-    var date: Date = Date())
+    var date: String = ""
+)

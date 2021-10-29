@@ -25,7 +25,7 @@ class MyAdapter(private val cats: List<Cat>, private val myContext: Context):
         holder.text1.text = cat.name
         val age = "${cat.age} ${Tools.god(cat.age)}"
         holder.itemView.setOnClickListener {
-            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, Tools.getDateToString(cat.date) )
+            val intent = OneActivity.newIntent(myContext, cat.name, cat.color, age, cat.date)
             myContext.startActivity(intent)
         }
     }

@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import ru.dudar.myrecycleview.databinding.ActivityMainBinding
+import ru.dudar.myrecycleview.databinding.ActivityOneConstrBinding
 
 private const val EXTRA_NAME = "extra_name"
 private const val EXTRA_COLOR = "extra_color"
@@ -13,25 +15,24 @@ private const val EXTRA_DATE = "extra_dat"
 
 
 class OneActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityOneConstrBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_one_constr)
+        binding = ActivityOneConstrBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val name = intent.getStringExtra(EXTRA_NAME)
         val color = intent.getStringExtra(EXTRA_COLOR)
         val age = intent.getStringExtra(EXTRA_AGE)
         val date = intent.getStringExtra(EXTRA_DATE)
 
-        val nameTV: TextView = findViewById(R.id.name_tv)
-        val colorTV: TextView = findViewById(R.id.color_tv)
-        val ageTV: TextView = findViewById(R.id.age_tv)
-        val dateTV: TextView = findViewById(R.id.date_tv)
-
-        nameTV.text = name
-        colorTV.text = color
-        ageTV.text = age
-        dateTV.text = date
-
+        binding.apply {
+            nameTv.text = name
+            colorTv.text = color
+            ageTv.text = age
+        }
+        binding.dateTv.text = date
     }
 
     companion object {

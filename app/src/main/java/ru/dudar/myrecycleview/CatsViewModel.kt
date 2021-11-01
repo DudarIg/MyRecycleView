@@ -1,6 +1,7 @@
 package ru.dudar.myrecycleview
 
 import androidx.lifecycle.ViewModel
+import java.util.*
 import kotlin.random.Random
 
 class CatsViewModel: ViewModel() {
@@ -14,6 +15,7 @@ class CatsViewModel: ViewModel() {
 
         for (i in 0 until 100) {
             val cat = Cat()
+            //cat.id = UUID.randomUUID()
             cat.name = names.random()
             cat.age = Random.nextInt(12)+1
             cat.color = col.random()

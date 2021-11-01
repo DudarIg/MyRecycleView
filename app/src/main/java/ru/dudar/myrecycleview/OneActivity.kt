@@ -8,11 +8,7 @@ import android.widget.TextView
 import ru.dudar.myrecycleview.databinding.ActivityMainBinding
 import ru.dudar.myrecycleview.databinding.ActivityOneConstrBinding
 
-private const val EXTRA_NAME = "extra_name"
-private const val EXTRA_COLOR = "extra_color"
-private const val EXTRA_AGE = "extra_age"
-private const val EXTRA_DATE = "extra_dat"
-
+private const val EXTRA_CAT = "extra_cat"
 
 class OneActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOneConstrBinding
@@ -22,26 +18,21 @@ class OneActivity : AppCompatActivity() {
         binding = ActivityOneConstrBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val name = intent.getStringExtra(EXTRA_NAME)
-        val color = intent.getStringExtra(EXTRA_COLOR)
-        val age = intent.getStringExtra(EXTRA_AGE)
-        val date = intent.getStringExtra(EXTRA_DATE)
+        val cat = intent.getSerializableExtra("EXTRA_CAT") as Cat
 
         binding.apply {
-            nameTv.text = name
-            colorTv.text = color
-            ageTv.text = age
+            nameTv.text = cat.name
+            colorTv.text = cat.color
+            ageTv.text = cat.age.toString()
         }
-        binding.dateTv.text = date
+        binding.dateTv.text = cat.date
     }
 
     companion object {
-        fun newIntent(packContext: Context, name: String, color: String, age: String, dat: String): Intent {
+        fun newIntent(packContext: Context, cat : Cat): Intent {
             return Intent(packContext, OneActivity::class.java).apply {
-                putExtra(EXTRA_NAME, name)
-                putExtra(EXTRA_COLOR, color)
-                putExtra(EXTRA_AGE, age)
-                putExtra(EXTRA_DATE, dat)
+            putExtra("EXTRA_CAT", cat )
+
             }
         }
     }

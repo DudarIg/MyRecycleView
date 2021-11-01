@@ -11,9 +11,13 @@ import ru.dudar.myrecycleview.databinding.ActivityOneConstrBinding
 class OneActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOneConstrBinding
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityOneConstrBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
         val cat = intent.getSerializableExtra("EXTRA_CAT") as Cat

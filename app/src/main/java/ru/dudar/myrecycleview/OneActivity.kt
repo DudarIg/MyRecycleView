@@ -9,6 +9,7 @@ import ru.dudar.myrecycleview.databinding.ActivityMainBinding
 import ru.dudar.myrecycleview.databinding.ActivityOneConstrBinding
 
 class OneActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityOneConstrBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

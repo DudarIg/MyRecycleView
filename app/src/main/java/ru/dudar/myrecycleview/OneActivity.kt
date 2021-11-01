@@ -8,8 +8,6 @@ import android.widget.TextView
 import ru.dudar.myrecycleview.databinding.ActivityMainBinding
 import ru.dudar.myrecycleview.databinding.ActivityOneConstrBinding
 
-private const val EXTRA_CAT = "extra_cat"
-
 class OneActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOneConstrBinding
 

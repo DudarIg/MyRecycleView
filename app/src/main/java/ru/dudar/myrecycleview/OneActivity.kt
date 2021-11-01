@@ -31,7 +31,7 @@ class OneActivity : AppCompatActivity() {
     companion object {
         fun newIntent(packContext: Context, cat : Cat): Intent {
             return Intent(packContext, OneActivity::class.java).apply {
-            putExtra("EXTRA_CAT", cat )
+            putExtra(EXTRA_CAT, cat )
 
             }
         }
